@@ -1,0 +1,109 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+}
+.loader.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+.loader .overlay {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: grey;
+  z-index: 9999;
+}
+.loader .overlay .spinner {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.loader .overlay .spinner > span {
+  position: absolute;
+}
+.loader .overlay .spinner.v3 {
+  width: 50px;
+  height: 50px;
+}
+@keyframes squareFirst {
+  0% {
+    transform: translate(0, 0) scale(0.5);
+  }
+  25% {
+    transform: translate(0, 40px) rotate(-90deg);
+  }
+  50% {
+    transform: translate(-40px, 40px) rotate(-180deg) scale(0.5);
+  }
+  75% {
+    transform: translate(-40px, 0) rotate(-270deg);
+  }
+  100% {
+    transform: rotate(360deg) scale(0.5);
+  }
+}
+@keyframes squareSecond {
+  0% {
+    transform: translate(0, 0) scale(0.5);
+  }
+  25% {
+    transform: translate(0, -40px) rotate(-90deg);
+  }
+  50% {
+    transform: translate(40px, -40px) rotate(-180deg) scale(0.5);
+  }
+  75% {
+    transform: translate(40px, 0) rotate(-270deg);
+  }
+  100% {
+    transform: rotate(360deg) scale(0.5);
+  }
+}
+.loader .overlay .spinner.v3 > span {
+  width: 10px;
+  height: 10px;
+  background-color: #f00;
+}
+.loader .overlay .spinner.v3 > span:nth-child(1) {
+  top: 0;
+  right: 0;
+  transform: scale(0.5);
+  animation: squareFirst 1.6s ease infinite;
+}
+.loader .overlay .spinner.v3 > span:nth-child(2) {
+  bottom: 0;
+  left: 0;
+  animation: squareSecond 1.6s ease infinite;
+}
+.container-pokemon {
+  display: flex;
+  position: relative;
+}
+.container-pokemon .list ul.pokemon-list {
+  padding: 0;
+  margin: 0;
+}
+.container-pokemon .list ul.pokemon-list > li {
+  list-style: none;
+  cursor: pointer;
+}
+.container-pokemon .list ul.pokemon-list > li > a {
+  text-decoration: none;
+  color: #000;
+}
+.container-pokemon .param {
+  margin: 0 auto;
+}
+.container-pokemon .param .description-poke {
+  border-collapse: collapse;
+}
+.container-pokemon .param .description-poke > tr,
+.container-pokemon .param .description-poke td,
+.container-pokemon .param .description-poke th {
+  border: 1px solid #000;
+  padding: 5px;
+}

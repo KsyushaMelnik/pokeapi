@@ -1,0 +1,119 @@
+//out: ../css/style.css
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+.loader {
+    &.hidden {
+        opacity: 0;
+        visibility: hidden;
+    }
+    .overlay {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: grey;
+    z-index: 9999;
+    
+    .spinner {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+    
+        > span {
+            position: absolute;
+        }
+        &.v3{
+            width: 50px;
+            height: 50px;
+    
+            @keyframes squareFirst {
+                0%{
+                    transform: translate(0, 0) scale(0.5);
+                }
+                25% {
+                    transform: translate(0, 40px) rotate(-90deg);
+                }
+                50% {
+                    transform: translate(-40px, 40px) rotate(-180deg) scale(0.5);
+                }
+                75% {
+                    transform: translate(-40px, 0) rotate(-270deg);
+                }
+                100% {
+                    transform: rotate(360deg) scale(0.5);
+                }
+                
+            }
+            @keyframes squareSecond {
+                0% {
+                    transform: translate(0, 0) scale(0.5);
+                }
+                25% {
+                    transform: translate(0, -40px)  rotate(-90deg);
+                }
+                50% {
+                    transform: translate(40px, -40px) rotate(-180deg) scale(0.5);
+                }
+                75% {
+                    transform: translate(40px, 0)  rotate(-270deg);
+                }
+                100% {
+                    transform: rotate(360deg) scale(0.5);
+                }
+            }
+            > span {
+                width: 10px;
+                height: 10px;
+                background-color: #f00;
+    
+                &:nth-child(1) {
+                    top: 0;
+                    right: 0;
+                    transform: scale(0.5);
+                    animation: squareFirst 1.6s ease infinite;
+                }
+    
+                &:nth-child(2) {
+                    bottom: 0;
+                    left: 0;
+                    animation: squareSecond 1.6s ease infinite;
+                }
+            }
+        }
+    }
+    }
+}   
+
+.container-pokemon {
+    display: flex;
+    position: relative;
+    .list {
+        ul.pokemon-list {
+            padding: 0;
+            margin: 0;
+            > li {
+                list-style: none;
+                cursor: pointer;
+                > a {
+                    text-decoration: none;
+                    color: #000;
+                }
+            }
+        }
+    }
+    .param {
+        margin: 0 auto;
+        .description-poke {
+            border-collapse: collapse;
+            > tr, td, th {
+                border: 1px solid #000;
+                padding: 5px;
+            }
+        }
+    }
+}
